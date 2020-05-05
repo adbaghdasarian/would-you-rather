@@ -14,3 +14,13 @@ class Question extends Component {
     )
   }
 }
+
+function mapStateToProps ({authedUser, users, questions}, {id}){
+  return {
+    authedUser,
+    questions,
+    id
+  }
+}
+
+export default connect(mapStateToProps)(Question);
