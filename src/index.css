@@ -53,4 +53,44 @@ code {
   width: 500px;
   text-align: center;
   margin: 0px auto;
+
 }
+
+#leaderboard{
+  width: 1000px;
+  text-align: center;
+  margin: 0px auto;
+  border-style: dotted;
+}
+
+.navLink{
+  display: inline;
+  padding: 10px;
+}
+
+.nav{
+
+}
+
+#userinfo{
+  display: inline-block;
+  padding: 10px;
+}
+
+#user-card{
+  width: 500px;
+  border-style: double;
+  margin: 0px auto;
+  padding: 20px;
+}
+
+#user-info{
+  display: inline-block;
+  margin-right: 50px;
+}
+
+#score-card{
+  display: inline-block;
+}
+
+
