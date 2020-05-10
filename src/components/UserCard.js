@@ -35,7 +35,8 @@ class UserCard extends Component {
 }
 
 function mapStateToProps({users}, {userID, getScore}){
-
+  /* getScore is passed from leaderboard component,
+     accepts a user and calculates score*/
   return {
     user: users[userID],
     getScore,

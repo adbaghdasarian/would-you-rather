@@ -7,7 +7,7 @@ import Dashboard from './components/Dashboard'
 import Nav from './components/Nav'
 import LeaderBoard from './components/LeaderBoard'
 import NewQuestion from './components/NewQuestion'
-import Question from './components/Question'
+import QuestionPage from './components/QuestionPage'
 import './index.css';
 import LoadingBar from 'react-redux-loading';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -30,7 +30,7 @@ class App extends Component {
                   <Route path='/' exact component={Dashboard}/>
                   <Route path='/new' component={NewQuestion}/>
                   <Route path='/leaderboard' component={LeaderBoard}/>
-                  <Route path='/questions/:id' component={Question} />
+                  <Route path='/question/:id' component={QuestionPage} />
                 </div>}
           </div>
          </Fragment>

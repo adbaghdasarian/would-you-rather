@@ -4,10 +4,12 @@ import { connect } from 'react-redux'
 
 import { formatQuestion }  from '../utils/_DATA'
 
+import { Link } from 'react-router-dom'
+
 class QuestionCard extends Component {
   render() {
     //console.log(this.props)
-    const { question, author} = this.props;
+    const { question, author, id} = this.props;
 
     if (question === null) {
       return <p> This Question doesn't exist </p>
@@ -15,15 +17,18 @@ class QuestionCard extends Component {
 
     console.log(author.avatarURL);
     return (
-      <div className='question-card'>
-        <div className='qcard-header'>
+      <Link to={`/question/${id}`} style={{textDecoration: 'none',}} className='question-card'>
+
+        <div className='question-header'>
           {author.name} asks:
         </div>
+
         <img
+          className='avatar'
           src={author.avatarURL}
           alt={`avatar of ${author.name}`}
-          className='avatar'
         />
+
         <div className='question-summary'>
           <strong> Would You Rather</strong>
           <br/>
@@ -32,7 +37,7 @@ class QuestionCard extends Component {
           <button> View Poll</button>
         </div>
 
-      </div>
+      </Link>
     )
 
 
@@ -43,18 +48,17 @@ class QuestionCard extends Component {
 function mapStateToProps ({authedUser, users, questions}, {id}) {
 
   let userAnswers = users[authedUser].answers
-  console.log(userAnswers);
   //will be -1 if question is unanswered
-  let exists = Object.keys(userAnswers).indexOf(id);
+  let hasAnswered = Object.keys(userAnswers).indexOf(id);
 
-  console.log(questions[id])
   return {
     authedUser,
     question: questions[id]
               ? questions[id]
               : null,
-    answered: exists,
+    hasAnswered,
     author: users[questions[id].author],
+    id,
   }
 
 }
