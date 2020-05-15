@@ -56,7 +56,7 @@ class UnansweredQuestion extends Component {
         </div>
         <img
           className='avatar'
-          src={author.avatarURL}
+          src={`./${author.avatarURL}`}
           alt={`avatar of ${author.name}`}
           style={{display: 'inline-block',}}
         />
@@ -103,12 +103,11 @@ class UnansweredQuestion extends Component {
 }
 
 
-function mapStateToProps({ authedUser, questions, users}, {id}){
+function mapStateToProps({ questions, users}, {id}){
 
 
   return {
 
-    authedUser,
     author: users[questions[id].author],
     question: questions[id],
     id,

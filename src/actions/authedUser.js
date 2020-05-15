@@ -1,4 +1,6 @@
-export const SET_AUTHED_USER = 'SET_AUTHED_USER'
+export const SET_AUTHED_USER = 'SET_AUTHED_USER';
+
+export const LOG_OUT_USER = 'LOG_OUT_USER';
 
 export function setAuthedUser (id) {
 
@@ -7,3 +9,10 @@ export function setAuthedUser (id) {
     id,
   }
 }
+
+export function logOutUser() {
+  return{
+    type: LOG_OUT_USER,
+  }
+}
+

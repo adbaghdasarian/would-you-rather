@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import UnansweredQuestion from './UnansweredQuestion.js'
+import UnansweredQuestion from './UnansweredQuestion.js';
+
+import AnsweredQuestion from './AnsweredQuestion.js';
 
 class QuestionPage extends Component {
 
@@ -21,9 +23,9 @@ class QuestionPage extends Component {
 
       </div> :
 
-      <div>
-        Results
-      </div>
+        <div className='Question'>
+           <AnsweredQuestion id={id} />
+        </div>
     )
   }
 }
