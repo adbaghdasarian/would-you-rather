@@ -3,7 +3,7 @@ import UserCard from './UserCard.js';
 
 
 import { connect } from 'react-redux'
-/*import { object } from 'prop-types';*/
+
 
 class LeaderBoard extends Component {
 

@@ -1,10 +1,10 @@
-import { _saveQuestion as saveQuestion } from '../utils/_DATA.js'
-import { _saveQuestionAnswer as saveAnswer } from '../utils/_DATA.js'
+import { _saveQuestion as saveQuestion } from '../_DATA.js'
+import { _saveQuestionAnswer as saveAnswer } from '../_DATA.js'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
-export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
-export const ANSWER_QUESTION = 'ANSWER_QUESTION';
-export const ADD_QUESTION = 'ADD_QUESTION';
+import { RECEIVE_QUESTIONS, ANSWER_QUESTION, ADD_QUESTION} from './types.js';
+
+
 
 
 export function receiveQuestions (questions) {
