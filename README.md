@@ -1,3 +1,7 @@
+
+
+Hello World. Welcom to the would you rather app. Login as a user and start and creating questions. Become part of this vibrant social network. see scores on the leaderboard!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
