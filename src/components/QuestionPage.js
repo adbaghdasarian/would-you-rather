@@ -6,36 +6,50 @@ import UnansweredQuestion from './UnansweredQuestion.js';
 
 import AnsweredQuestion from './AnsweredQuestion.js';
 
+//import { Redirect } from 'react-router-dom';
+
 class QuestionPage extends Component {
 
 
   render () {
 
     const {id, hasAnswered} = this.props;
-    console.log(hasAnswered);
-
-    let unanswered = !hasAnswered;
-    return (
-      unanswered ?
-      <div className='Question'>
-
-        <UnansweredQuestion id={id} />
-
-      </div> :
-
+    //console.log(hasAnswered);
+    console.log('here', this.props.questions[id]);
+    if (this.props.question === 'question does not exist'){
+      return(
+      <div style={{dislay: 'flex', flex: 1, fontSize: '100px'}}>
+          ERROR 404 DOES NOT EXIST
+      </div>
+      )
+    }
+    else {
+      let unanswered = !hasAnswered;
+      return (
+        unanswered ?
         <div className='Question'>
-           <AnsweredQuestion id={id} />
-        </div>
-    )
+
+          <UnansweredQuestion id={id} />
+
+        </div> :
+
+          <div className='Question'>
+            <AnsweredQuestion id={id} />
+          </div>
+      )
+    }
   }
 }
 
 function mapStateToProps ({authedUser, users, questions}, props){
 
   const { id } = props.match.params;
-  const question = questions.id;
+  const question = questions[id] ? questions[id] : 'question does not exist';
 
-  let userAnswers = users[authedUser].answers;
+  let userAnswers =
+    (authedUser !== '') ?
+      users[authedUser].answers
+      : [];
 
   //will be -1 if question is unanswered
   let hasAnswered = Object.keys(userAnswers).indexOf(id);

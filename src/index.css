@@ -12,7 +12,44 @@ code {
     monospace;
 }
 
-.center {
+
+.dashboard{
+  text-align: center;
+  margin: 0px auto;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border: 2px dotted;
+
+}
+
+.dashboard-title {
+  font-family: 'Andale Mono';
+  font-size: 75px;
+  color: cyan;
+  text-shadow: 2px 2px #ff0000;
+}
+.dashboard-nav-bar {
+  background-color: LightCyan;
+  border: 1px solid;
+  height: 60px;
+  align-self: center;
+}
+.dashboard-nav {
+  font-size: 40px;
+  font-weight: bolder;
+  color: darkseagreen;
+  flex: 1;
+  box-shadow: 2px 2px orchid;
+  font-family: fantasy;
+}
+.question-card {
+  margin: 20px;
+
+}
+.question-summary{
+  margin: 20px;
 }
 
 .main-container {
@@ -22,6 +59,8 @@ code {
 }
 .question-card {
   height: 100px;
+  font-size: 20px;
+  font-family: 'futura';
 }
 
 /*div {
@@ -43,15 +82,58 @@ code {
 }
 
 .question-header{
-  background-color: grey;
+  background-color: cyan;
   display: block;
   width: 100%;
   margin: 0px auto;
 }
 
+.create-new-question-header{
+  font-size: 100px;
+  font-weight: bold;
+  color: coral;
+  text-shadow: 3px 3px cornflowerblue;
+}
+
+.new-question-container{
+
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+
+}
+
+.newQuestion-subheader{
+  font-size: 50px;
+  font-family: fantasy;
+  color: orchid;
+  text-shadow: 2px 2px black;
+}
+
+.new-question{
+  font-family: futura;
+  font-size: 20px;
+  margin-bottom: 100px;
+}
+
+.btn{
+  width: 200px;
+  height: 50px;
+  background-color: cadetblue;
+  font-weight: bold;
+  color: orchid;
+  font-size: 30px;
+
+}
+
 .percentage-card{
-  margin: 20px;
+  margin: 20px;;
+
   padding: 20px;
+}
+.textarea{
+  width: 400px;
+  height: 75px;
+  margin: 20px;
 }
 
 .percentage-bar{
@@ -61,12 +143,7 @@ input {
   margin: .4rem;
 }
 
-.dashboard{
-  width: 500px;
-  text-align: center;
-  margin: 0px auto;
 
-}
 
 #leaderboard{
   width: 1000px;
@@ -78,17 +155,25 @@ input {
 .navLink{
   display: inline;
   padding: 10px;
+  flex: 2;
+  background-color: bisque;
+  font-family: 'futura';
+  text-decoration: none;
+  text-align: end;
+  border: 1px solid;
+  font-size: 25px;
 }
 
 .nav{
   width: 100%;
   text-align: left;
-  border: solid 1px;
+  border-bottom: solid 1px;
 }
 
 .logOut{
   width: 50%;
-  border: solid 1px;
+  background-color: bisque;
+  font-size: 25px;
 }
 
 #userinfo{

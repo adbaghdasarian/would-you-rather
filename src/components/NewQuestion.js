@@ -60,7 +60,7 @@ class NewQuestion extends Component {
       <div id='new-question-container'>
         <h3 className='center create-new-question-header'> Create New Question</h3>
         <br/>
-        <h1> Complete the Question:</h1>
+        <h1 className='newQuestion-subheader'> Complete the Question:</h1>
         <br />
         <h2 style={{fontWeight: 'bold'}}> Would you rather ...</h2>
         <form className='new-question' onSubmit={this.handleSubmit}>

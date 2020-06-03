@@ -36,16 +36,17 @@ class Dashboard extends Component {
     const { toggleAnswered } = this.state;
     return (
       <div className='dashboard'>
-        <h3 className='center'> Your Questions</h3>
-        <nav className='dashboard-nav'>
+        <h3 className='dashboard-title'> Your Questions</h3>
+        <nav className='dashboard-nav-bar'>
           <span style={{width: '50%',
                         textAlign: 'center',
                         margin: '20px',
                         boxSizing: 'border-box',
-                        backgroundColor: !toggleAnswered ? 'grey' : 'white',
+                        backgroundColor: !toggleAnswered ? 'darkseagreen' : 'White',
                         color: !toggleAnswered ? 'green' : 'black'}}
                  onClick={this.toggleUnanswered}
-                 id='unanswered-nav'>
+                 id='unanswered-nav'
+                 className="dashboard-nav">
 
           Unanswered Questions
           </span>
@@ -53,10 +54,11 @@ class Dashboard extends Component {
                         textAlign: 'center',
                         margin: '20px',
                         boxSizing: 'border-box',
-                        backgroundColor: toggleAnswered ? 'grey' : 'white',
+                        backgroundColor: toggleAnswered ?  'darkseagreen' : 'white',
                         color: toggleAnswered ? 'green' : 'black'}}
                   onClick={this.toggleAnswered}
-                  id='answered-nav'>
+                  id='answered-nav'
+                  className="dashboard-nav">
 
           Answered Questions
           </span>
@@ -64,7 +66,7 @@ class Dashboard extends Component {
         { toggleAnswered ?
             <ul className='dashboard-list'>
               {this.props.answeredQuestionIds.map((id) => (
-                  <li key={id}>
+                  <li key={id} className="question-card-container">
                     <QuestionCard id={id} />
                   </li>
                 ))}
@@ -72,7 +74,7 @@ class Dashboard extends Component {
 
             <ul className='dashboard-list'>
               {this.props.unansweredQuestionIds.map((id) => (
-                <li key={id}>
+                <li key={id} className="question-card-container">
                   <QuestionCard id={id} />
                 </li>
               ))}

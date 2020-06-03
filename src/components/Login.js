@@ -45,7 +45,7 @@ class Login extends Component {
             </div>
             <img
               className='avatar'
-              src={`./wyr-icons/morpheusredblue.jpg}`}
+              src="./wyr-icons/morpheusredblue"
               alt={`Morpheus`}
               style={{display: 'block',
                       margin: '0px auto'}}

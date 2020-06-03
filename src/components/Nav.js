@@ -28,10 +28,13 @@ class Nav extends Component {
     }
 
     return (
-      <nav className='nav'>
-        <ul>
-          <li className='navLink'>
-            <NavLink to='/' exact activeClassName='active' >
+      <nav className='nav'
+      style={{display: 'flex',
+              backGroundColor: 'grey'}}>
+        <ul style={{display: 'flex',}}>
+          <li
+            className='navLink'>
+            <NavLink to='/' exact activeClassName='active'>
               Home
             </NavLink>
           </li>
@@ -47,27 +50,29 @@ class Nav extends Component {
           </li>
 
 
-
-        { user ?
         <span style={{textAlign: 'right',
-                      float: 'up',
                     display: 'inline',
-                    width: '1000px'}}
+                    flex: 6,
+                    width: '1000px',
+                  }}
               className='logOut'>
+          <div style={{display: 'inline', marginRight: '100px'}}>
           Hello, {user.name}
+          </div>
           <img
             className='avatar logInAvatar'
             src={user.avatarURL}
             alt={`avatar of ${user.name}`}
-            style={{display: 'inline-block', margin: '20px auto'}}
+            style={{display: 'inline-block',
+                    margin: '50px auto'}}
           />
-          <li className='navLink'>
+          <li className='navLink' style={{marginLeft: '40px'}}>
             <NavLink to='/' exact activeClassName='active' onClick={this.logOut}>
               Log Out
             </NavLink>
           </li>
 
-        </span> : null}
+        </span>
 
 
         </ul>
