@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class UserCard extends Component {
 
+import icons from './wyr-icons/index.js';
+
+class UserCard extends Component {
 
   render() {
     const { user, getScore } = this.props;
     const numOfAnswers = Object.keys(user.answers).length;
     const numOfQuestions = user.questions.length;
+
+    const image = user.avatarURL;
     return (
       <div id='user-card'>
         <img
-          src={user.avatarURL}
+          src={icons[image]}
           alt={`avatar of ${user.name}`}
           className='avatar'
+          style={{width: '120px', height: '80px', marginTop: '20px'}}
         />
         <div id='user-info'>
           <h3>{user.name}</h3>

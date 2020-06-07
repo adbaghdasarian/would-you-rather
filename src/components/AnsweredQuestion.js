@@ -2,31 +2,31 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-class AnsweredQuestion extends Component {
+import icons from './wyr-icons/index.js';
 
+class AnsweredQuestion extends Component {
 
 
   render(){
 
     const {author, question, authedUser} = this.props;
+    const image = author.avatarURL;
 
+    const optionOneText = question.optionOne.text;
+    const optionTwoText = question.optionTwo.text;
 
-      const optionOneText = question.optionOne.text;
+    let isAuthedUserOptionOne =
+      question.optionOne.votes.indexOf(authedUser) >= 0;
 
-      const optionTwoText = question.optionTwo.text;
+    const optionOneVotes = question.optionOne.votes.length;
 
-      let isAuthedUserOptionOne =
-        question.optionOne.votes.indexOf(authedUser) >= 0;
+    const optionTwoVotes = question.optionTwo.votes.length;
 
-      const optionOneVotes = question.optionOne.votes.length;
+    const optionOnePercent =
+      Math.round(optionOneVotes/(optionOneVotes + optionTwoVotes) * 100) + '%';
 
-      const optionTwoVotes = question.optionTwo.votes.length;
-
-      const optionOnePercent =
-        Math.round(optionOneVotes/(optionOneVotes + optionTwoVotes) * 100) + '%';
-
-      const optionTwoPercent =
-        Math.round(optionTwoVotes/(optionOneVotes + optionTwoVotes) * 100)
+    const optionTwoPercent =
+      Math.round(optionTwoVotes/(optionOneVotes + optionTwoVotes) * 100)
           + '%';
 
     return(
@@ -42,9 +42,12 @@ class AnsweredQuestion extends Component {
         </div>
         <img
           className='avatar'
-          src={author.avatarURL}
+          src={icons[image]}
           alt={`avatar of ${author.name}`}
-          style={{display: 'inline-block',}}
+          style={{display: 'inline-block',
+                  height: '150px',
+                  width: '175px',
+                  marginTop: '25px'}}
         />
 
         <div className='results'>
@@ -70,9 +73,7 @@ class AnsweredQuestion extends Component {
               </div>
               <div class='percentage-label'
                   style={{textAlign: 'center',}}>
-
                   {`${optionOneVotes} out of ${optionOneVotes + optionTwoVotes} votes`}
-
               </div>
             </div>
           </div>
@@ -96,13 +97,11 @@ class AnsweredQuestion extends Component {
               <div class='percentage-label'
                   style={{textAlign: 'center',}}>
                   {`${optionTwoVotes} out of ${optionOneVotes + optionTwoVotes} votes`}
-
               </div>
             </div>
           </div>
         </div>
       </div>
-
     )
   }
 }

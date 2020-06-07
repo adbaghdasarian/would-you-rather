@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-import ReactDOM from 'react-dom';
-
 import { connect } from 'react-redux';
 
 import {setAuthedUser} from '../actions/authedUser';
+
+
+import icons from './wyr-icons/index.js'
 
 class Login extends Component {
 
@@ -45,10 +46,13 @@ class Login extends Component {
             </div>
             <img
               className='avatar'
-              src="./wyr-icons/morpheusredblue"
+              src={icons.morpheus}
               alt={`Morpheus`}
               style={{display: 'block',
-                      margin: '0px auto'}}
+                      margin: '0px auto',
+                      width: '50%',
+                      height: '50%',
+                    }}
             />
             <form onSubmit={this.logIn}>
               <label>
@@ -58,7 +62,8 @@ class Login extends Component {
                 <select
                   value={this.state.value}
                   onChange={this.handleChange}
-                  defaultValue=''>
+                  defaultValue=''
+                  style={{width: '150px'}}>
                   <option value={''}></option>
                   {Object.values(users).map((user) =>
                     <option value={user.id}>
@@ -70,7 +75,6 @@ class Login extends Component {
               <input type="submit" value="Submit" />
             </form>
           </div>
-
     )
   }
 }

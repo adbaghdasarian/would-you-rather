@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { Link } from 'react-router-dom'
 
+import icons from './wyr-icons/index.js';
+
 class QuestionCard extends Component {
   render() {
     //console.log(this.props)
@@ -13,20 +15,20 @@ class QuestionCard extends Component {
       return <p> This Question doesn't exist </p>
     }
 
-    console.log(author.avatarURL);
+    const image = author.avatarURL;
     return (
-      <Link to={`/question/${id}`} style={{textDecoration: 'none',}} className='question-card'>
-
+      <Link to={`/question/${id}`}
+            style={{textDecoration: 'none',}}
+            className='question-card'>
         <div className='question-header'>
           {author.name} asks:
         </div>
-
         <img
           className='avatar'
-          src={author.avatarURL}
+          src={icons[image]}
           alt={`avatar of ${author.name}`}
+          style={{width: '120px', height: '80px', marginTop: '20px'}}
         />
-
         <div className='question-summary'>
           <strong> Would You Rather</strong>
           <br/>
@@ -34,7 +36,6 @@ class QuestionCard extends Component {
           <br/>
           <button> View Poll</button>
         </div>
-
       </Link>
     )
 

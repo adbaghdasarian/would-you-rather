@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import QuestionCard from './QuestionCard.js'
 
-class Dashboard extends Component {
 
+class Dashboard extends Component {
   state = {
     toggleAnswered: false,
   }
-
   toggleAnswered = (e) => {
     e.preventDefault();
 
@@ -38,32 +37,24 @@ class Dashboard extends Component {
       <div className='dashboard'>
         <h3 className='dashboard-title'> Your Questions</h3>
         <nav className='dashboard-nav-bar'>
-          <span style={{width: '50%',
-                        textAlign: 'center',
-                        margin: '20px',
-                        boxSizing: 'border-box',
-                        backgroundColor: !toggleAnswered ? 'darkseagreen' : 'White',
-                        color: !toggleAnswered ? 'green' : 'black'}}
+          <span style={{backgroundColor: !toggleAnswered ? 'cyan' : 'grey',
+                        color: !toggleAnswered ? 'orchid' : 'black'}}
                  onClick={this.toggleUnanswered}
                  id='unanswered-nav'
                  className="dashboard-nav">
 
-          Unanswered Questions
+            Unanswered Questions
           </span>
-          <span style={{width: '50%',
-                        textAlign: 'center',
-                        margin: '20px',
-                        boxSizing: 'border-box',
-                        backgroundColor: toggleAnswered ?  'darkseagreen' : 'white',
-                        color: toggleAnswered ? 'green' : 'black'}}
+          <span style={{backgroundColor: toggleAnswered ?  'cyan' : 'grey',
+                        color: toggleAnswered ? 'orchid' : 'black'}}
                   onClick={this.toggleAnswered}
                   id='answered-nav'
                   className="dashboard-nav">
 
-          Answered Questions
+            Answered Questions
           </span>
         </nav>
-        { toggleAnswered ?
+        {toggleAnswered ?
             <ul className='dashboard-list'>
               {this.props.answeredQuestionIds.map((id) => (
                   <li key={id} className="question-card-container">
@@ -71,7 +62,6 @@ class Dashboard extends Component {
                   </li>
                 ))}
             </ul>   :
-
             <ul className='dashboard-list'>
               {this.props.unansweredQuestionIds.map((id) => (
                 <li key={id} className="question-card-container">
@@ -80,7 +70,6 @@ class Dashboard extends Component {
               ))}
             </ul>
         }
-
       </div>
     )
   }
@@ -89,6 +78,7 @@ class Dashboard extends Component {
 function mapStateToProps({ questions, authedUser, users }) {
 
 
+  //sort by timestamp
   const questionIds =  Object.keys(questions)
   .sort((a,b) => questions[b].timestamp - questions[a].timestamp);
 
@@ -98,8 +88,9 @@ function mapStateToProps({ questions, authedUser, users }) {
 
   const unansweredQuestionIds = [];
 
-  questionIds.map((id) => {
 
+  //sorts questions into answered and unanswered arrays
+  questionIds.map((id) => {
     if(authedUserAnswers.includes(id)){
       answeredQuestionIds.push(id);
       return id;
@@ -108,7 +99,6 @@ function mapStateToProps({ questions, authedUser, users }) {
       unansweredQuestionIds.push(id);
       return id;
     }
-
   })
 
 

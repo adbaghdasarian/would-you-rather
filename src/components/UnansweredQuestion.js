@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 /*{qid, answer}*/
 import { handleAnswerQuestion } from '../actions/questions';
 
-
+import icons from './wyr-icons/index.js';
 
 class UnansweredQuestion extends Component {
 
@@ -29,20 +29,18 @@ class UnansweredQuestion extends Component {
     const { selection } = this.state;
     const {  id, dispatch } = this.props;
 
-    console.log('fired');
-
     dispatch(handleAnswerQuestion(id, selection));
   }
 
   render() {
 
-      const {author, question} = this.props;
+    const {author, question} = this.props;
 
+    const optionOne = question.optionOne.text;
 
-      const optionOne = question.optionOne.text;
+    const optionTwo = question.optionTwo.text;
 
-      const optionTwo = question.optionTwo.text;
-
+    const image = author.avatarURL;
 
     return(
       <div
@@ -56,9 +54,12 @@ class UnansweredQuestion extends Component {
         </div>
         <img
           className='avatar'
-          src={`./${author.avatarURL}`}
+          src={icons[image]}
           alt={`avatar of ${author.name}`}
-          style={{display: 'inline-block',}}
+          style={{display: 'inline-block',
+                  height: '150px',
+                  width: '175px',
+                  marginTop: '25px'}}
         />
         <form className="answer-selector"
             style={{display: 'inline-block',}}
@@ -94,7 +95,6 @@ class UnansweredQuestion extends Component {
               Submit
           </button>
         </form>
-
       </div>
     )
 

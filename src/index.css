@@ -1,3 +1,10 @@
+html, body {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 body {
   margin: 0px auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -31,18 +38,23 @@ code {
   text-shadow: 2px 2px #ff0000;
 }
 .dashboard-nav-bar {
-  background-color: LightCyan;
+  background-color: orangered;
   border: 1px solid;
   height: 60px;
   align-self: center;
 }
 .dashboard-nav {
-  font-size: 40px;
+  font-size: 37px;
   font-weight: bolder;
   color: darkseagreen;
   flex: 1;
   box-shadow: 2px 2px orchid;
   font-family: fantasy;
+  width: '50%';
+  text-align: 'center';
+  margin: '50px';
+  box-sizing: 'border-box';
+  padding: 10px;
 }
 .question-card {
   margin: 20px;
@@ -56,6 +68,10 @@ code {
   width: 100%;
   margin: 0px auto;
   text-align: center;
+  background: rgb(34,171,195);
+  background: linear-gradient(0deg, rgba(34,171,195,0.7777485994397759) 0%, rgba(253,45,194,1) 100%);
+  height: 100%;
+
 }
 .question-card {
   height: 100px;
@@ -170,6 +186,28 @@ input {
   border-bottom: solid 1px;
 }
 
+/*LOG IN PAGE*/
+
+.log-in{
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid;
+  display: flex;
+  font-family: 'futura';
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  height: 700px;
+}
+.log-in-header{
+  background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,70,0.7105217086834734) 100%);
+  width: 800px;
+  height: 200px;
+  text-align: center;
+
+}
 .logOut{
   width: 50%;
   background-color: bisque;

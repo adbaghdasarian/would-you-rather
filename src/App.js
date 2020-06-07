@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
 import { handleInitialData } from './actions/shared'
@@ -19,33 +18,27 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   render() {
-
-    const loggedOut = this.props.authedUser === '';
-    return (
-      <Router>
-        <Fragment>
-          <LoadingBar />
-          <div className="main-container">
-                <div>
-                  <Nav />
-                  {this.props.loading
-                    ? null
-                    : <div>
-                        <Route path='/' exact component={
-                          loggedOut ?
-                            Login:
-                            Dashboard
-                          }/>
-                        <Route path='/new' component={NewQuestion}/>
-                        <Route path='/leaderboard' component={LeaderBoard}/>
-                        <Route path='/question/:id' component={QuestionPage} />
-                      </div>
-                  }
-                </div>
-          </div>
-         </Fragment>
-      </Router>
-    );
+    const loggedOut = (this.props.authedUser === '') || !this.props.authedUser ;
+    console.log(this.props.user);
+    if(loggedOut){
+      return <Login />
+    }
+    else {
+      return (
+        <Router>
+          <Fragment>
+            <LoadingBar />
+            <div className="main-container">
+               <Nav />
+               <Route path='/' exact component={Dashboard}/>
+               <Route path='/add' component={NewQuestion}/>
+               <Route path='/leaderboard' component={LeaderBoard}/>
+               <Route path='/question/:id' component={QuestionPage} />
+            </div>
+          </Fragment>
+        </Router>
+      );
+    }
   }
 }
 
